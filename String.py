@@ -1,63 +1,80 @@
-# Kullanıcıdan isim ve telefon numarası bilgisi alınır
+# KullanÄ±cÄ±dan isim ve telefon numarasÄ± bilgisi alÄ±nÄ±r
 name = input("Enter your name: ")
 phone_number = input("Enter your phone #: ")
 
-# 1. İsmin uzunluğunu hesaplama
-print(f"Isminizin uzunlugu {len(name)} dir.")
+# 1. Ä°smin uzunluÄŸunu hesaplama
+print(f"Ä°sminizin uzunluÄŸu {len(name)} dir.")
 
-# 2. İsmin başında veya sonunda gereksiz boşluklar varsa temizleyelim
-name = name.strip()  # Baş ve sondaki boşluklar kaldırılır
-print(f"Boşluklar kaldırıldıktan sonra isim: '{name}'")
+# 2. Ä°smin baÅŸÄ±nda veya sonunda gereksiz boÅŸluklar varsa temizleyelim
+name = name.strip()  # BaÅŸ ve sondaki boÅŸluklar kaldÄ±rÄ±lÄ±r
+print(f"BoÅŸluklar kaldÄ±rÄ±ldÄ±ktan sonra isim: '{name}'")
 
-# 3. İsmin büyük/küçük harf dönüşümleri
-print(f"Büyük harflerle isim: {name.upper()}")
-print(f"Küçük harflerle isim: {name.lower()}")
-print(f"Baş harfi büyük olacak şekilde isim: {name.capitalize()}")
-print(f"Her kelimenin baş harfi büyük: {name.title()}")
+# 3. Ä°smin baÅŸÄ±ndaki veya sonundaki boÅŸluklarÄ± ayrÄ± ayrÄ± kaldÄ±rma
+lstrip_name = name.lstrip()  # Sadece baÅŸtaki boÅŸluklarÄ± kaldÄ±rÄ±r
+rstrip_name = name.rstrip()  # Sadece sondaki boÅŸluklarÄ± kaldÄ±rÄ±r
+print(f"BaÅŸÄ±ndaki boÅŸluklar kaldÄ±rÄ±ldÄ±: '{lstrip_name}'")
+print(f"Sondaki boÅŸluklar kaldÄ±rÄ±ldÄ±: '{rstrip_name}'")
 
-# 4. İsmin içinde boşluk olup olmadığını kontrol edelim
+# 4. Ä°smin bÃ¼yÃ¼k/kÃ¼Ã§Ã¼k harf dÃ¶nÃ¼ÅŸÃ¼mleri
+print(f"BÃ¼yÃ¼k harflerle isim: {name.upper()}")
+print(f"KÃ¼Ã§Ã¼k harflerle isim: {name.lower()}")
+print(f"BaÅŸ harfi bÃ¼yÃ¼k olacak ÅŸekilde isim: {name.capitalize()}")
+print(f"Her kelimenin baÅŸ harfi bÃ¼yÃ¼k: {name.title()}")
+
+# 5. Ä°smin iÃ§inde boÅŸluk olup olmadÄ±ÄŸÄ±nÄ± kontrol edelim
 if " " in name:
-    space_index = name.find(" ")  # İlk boşluğun indeksini bul
-    print(f"İsimde {space_index}. indekste bir boşluk var.")
+    space_index = name.find(" ")  # Ä°lk boÅŸluÄŸun indeksini bul
+    print(f"Ä°simde {space_index}. indekste bir boÅŸluk var.")
 else:
-    print("İsimde hiç boşluk yok.")
+    print("Ä°simde hiÃ§ boÅŸluk yok.")
 
-# 5. Telefon numarasındaki belirli karakterleri değiştirme
-phone_number = phone_number.replace("-", " ")  # "-" yerine boşluk koy
-print(f"Telefon numarası düzenlendi: {phone_number}")
+# 6. Telefon numarasÄ±ndaki belirli karakterleri deÄŸiÅŸtirme
+phone_number = phone_number.replace("-", " ")  # "-" yerine boÅŸluk koy
+print(f"Telefon numarasÄ± dÃ¼zenlendi: {phone_number}")
 
-# 6. Telefon numarasındaki boşluk sayısını kontrol et
-space_count = phone_number.count(" ")  # Boşlukları say
-print(f"Telefon numarasında {space_count} adet boşluk var.")
+# 7. Telefon numarasÄ±ndaki boÅŸluk sayÄ±sÄ±nÄ± kontrol et
+space_count = phone_number.count(" ")  # BoÅŸluklarÄ± say
+print(f"Telefon numarasÄ±nda {space_count} adet boÅŸluk var.")
 
-# 7. İsmin tamamen alfabetik olup olmadığını kontrol et
+# 8. Ä°smin tamamen alfabetik olup olmadÄ±ÄŸÄ±nÄ± kontrol et
 if name.isalpha():
-    print("İsminiz yalnızca harflerden oluşuyor.")
+    print("Ä°sminiz yalnÄ±zca harflerden oluÅŸuyor.")
 else:
-    print("İsminiz harfler dışında karakterler içeriyor (örneğin boşluk, rakam).")
+    print("Ä°sminiz harfler dÄ±ÅŸÄ±nda karakterler iÃ§eriyor (Ã¶rneÄŸin boÅŸluk, rakam).")
 
-# 8. Telefon numarasının rakamlardan oluşup oluşmadığını kontrol edelim
-phone_number_cleaned = phone_number.replace(" ", "")  # Boşlukları kaldır
+# 9. Telefon numarasÄ±nÄ±n rakamlardan oluÅŸup oluÅŸmadÄ±ÄŸÄ±nÄ± kontrol edelim
+phone_number_cleaned = phone_number.replace(" ", "")  # BoÅŸluklarÄ± kaldÄ±r
 if phone_number_cleaned.isdigit():
-    print("Telefon numarası yalnızca rakamlardan oluşuyor.")
+    print("Telefon numarasÄ± yalnÄ±zca rakamlardan oluÅŸuyor.")
 else:
-    print("Telefon numarasında rakam dışında karakterler var.")
+    print("Telefon numarasÄ±nda rakam dÄ±ÅŸÄ±nda karakterler var.")
 
-# 9. İsmin başında veya sonunda belirli bir karakter olup olmadığını kontrol et
-if name.startswith("A"):
-    print("İsminiz 'A' harfi ile başlıyor.")
+# 10. Ä°smin tamamen alfanÃ¼merik olup olmadÄ±ÄŸÄ±nÄ± kontrol edelim
+if name.isalnum():
+    print("Ä°sminiz yalnÄ±zca harf ve rakamlardan oluÅŸuyor.")
 else:
-    print("İsminiz 'A' harfi ile başlamıyor.")
+    print("Ä°sminizde Ã¶zel karakterler veya boÅŸluklar var.")
+
+# 11. Telefon numarasÄ±nÄ±n alfanÃ¼merik olup olmadÄ±ÄŸÄ±nÄ± kontrol et
+if phone_number.isalnum():
+    print("Telefon numarasÄ± yalnÄ±zca harf ve rakamlardan oluÅŸuyor.")
+else:
+    print("Telefon numarasÄ± harf, rakam dÄ±ÅŸÄ±ndaki karakterler iÃ§eriyor.")
+
+# 12. Ä°smin baÅŸÄ±nda veya sonunda belirli bir karakter olup olmadÄ±ÄŸÄ±nÄ± kontrol et
+if name.startswith("A"):
+    print("Ä°sminiz 'A' harfi ile baÅŸlÄ±yor.")
+else:
+    print("Ä°sminiz 'A' harfi ile baÅŸlamÄ±yor.")
 
 if name.endswith("z"):
-    print("İsminiz 'z' harfi ile bitiyor.")
+    print("Ä°sminiz 'z' harfi ile bitiyor.")
 else:
-    print("İsminiz 'z' harfi ile bitmiyor.")
+    print("Ä°sminiz 'z' harfi ile bitmiyor.")
 
-# 10. İsmi merkezleme ve özel karakterlerle süsleme
-centered_name = name.center(30, "*")  # İsmi 30 karakter genişliğinde ortalar, boşluk yerine "*" koyar
-print(f"Ortalanmış isim: {centered_name}")
-
-# 11. Telefon numarasını zfill ile düzenleme (başına sıfır ekleme)
-phone_number_with_zeros = phone_number_cleaned.zfill(12)  # 12 karaktere tamamlar
-print(f"Telefon numarası (sıfır eklenmiş): {phone_number_with_zeros}")
+# 15. Ã–rnek: Belirli bir karakteri lstrip veya rstrip ile kaldÄ±rma
+# Ã–rneÄŸin, kullanÄ±cÄ± isminin baÅŸÄ±na veya sonuna istemeden "@" veya "#" eklemiÅŸ olabilir.
+test_name = "@Ali#"
+print(f"Orijinal isim: '{test_name}'")
+print(f"BaÅŸÄ±ndaki '@' karakteri kaldÄ±rÄ±ldÄ±: '{test_name.lstrip('@')}'")
+print(f"Sondaki '#' karakteri kaldÄ±rÄ±ldÄ±: '{test_name.rstrip('#')}'")
